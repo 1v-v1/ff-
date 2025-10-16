@@ -1,0 +1,48 @@
+# Fama-French Three Factor Model Configuration
+
+# Data Source URLs
+data_sources:
+  three_factors: "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_CSV.zip"
+  portfolios_25: "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/25_Portfolios_5x5_CSV.zip"
+
+# Time Range
+time_range:
+  start_date: "2015-01"
+  end_date: "2024-12"
+
+# Paths
+paths:
+  data_raw: "data/raw"
+  data_processed: "data/processed"
+  output_figures: "output/figures"
+  output_results: "output/results"
+  logs: "logs"
+
+# Analysis Parameters
+analysis:
+  # Risk-free rate assumption (annual percentage)
+  risk_free_rate: 0.0
+  # Portfolio selection for regression (will use representative portfolios)
+  selected_portfolios:
+    - "SMALL LoBM"
+    - "SMALL HiBM"
+    - "BIG LoBM"
+    - "BIG HiBM"
+    - "ME3 BM3"  # Middle portfolio
+  
+# Visualization
+visualization:
+  figure_format: "png"
+  figure_dpi: 300
+  figure_size_wide: [12, 6]
+  figure_size_square: [10, 8]
+  style: "seaborn-v0_8-darkgrid"
+  color_palette: "husl"
+
+# Logging
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/fama_french.log"
+
+
